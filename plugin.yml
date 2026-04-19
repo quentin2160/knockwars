@@ -1,0 +1,26 @@
+name: KnockWars
+version: 1.0
+main: knockwars.Main
+author: Quentin_60
+website: https://bluewolf-mc.fr
+description: Module mini-jeux PVP avec effet de recul
+
+commands:
+  kb:
+    description: Commandes KnockWars
+    usage: /kb help
+    aliases: [knockwars]
+
+permissions:
+  knockwars.setspawn:
+    description: Permet de définir le spawn KnockWars
+    default: op
+  knockwars.admin.setkb:
+    description: Permet de configurer les niveaux de recul
+    default: op
+  knockwars.admin:
+    description: Permission admin KnockWars
+    default: op
+    children:
+      knockwars.setspawn: true
+      knockwars.admin.setkb: true

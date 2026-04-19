@@ -1,0 +1,66 @@
+# # # # # # # # # # # # # # # # # # # # #
+#            KnockWars Config           #
+# # # # # # # # # # # # # # # # # # # # #
+
+# Position du spawn KnockWars
+spawn:
+  world: kb
+  x: 8
+  y: 21
+  z: 8
+
+# Intensité du recul du bâton KB
+# 0 = aucun recul
+# 1 = Knockback I
+kb_level: 1
+
+# Intensité du punch de l’arc
+# 0 = aucun punch
+# 1 = Punch I
+punch_level: 1
+
+# Configuration de la langue
+lang:
+  # Messages généraux
+  prefix: "§6[§eKnockWars§6] §r"
+  no_permission: "§cVous n'avez pas la permission."
+  not_player: "§cCette commande est réservée aux joueurs."
+  
+  # Commande /kb help
+  help_header: "§eListe des commandes KnockWars :"
+  help_setspawn: "§6/kb setspawn §7- Définit la zone de spawn du jeu"
+  help_setkb: "§6/kb setkb <kb|punch> <niveau> §7- Configure le niveau de recul"
+  help_reload: "§6/kb reload §7- Recharge la configuration"
+  help_join: "§6/kb join §7- Rejoindre la partie"
+  help_leave: "§6/kb leave §7- Quitter la partie"
+  help_help: "§6/kb help §7- Affiche cette aide"
+  
+  # Commande /kb setspawn
+  spawn_set: "§aLe spawn KnockWars a été défini ici."
+  
+  # Commande /kb setkb
+  setkb_kb_set: "§aLe niveau de recul du bâton a été défini à {level}."
+  setkb_punch_set: "§aLe niveau de punch de l'arc a été défini à {level}."
+  setkb_invalid_type: "§cType invalide ! Utilisez 'kb' ou 'punch'."
+  setkb_invalid_level: "§cNiveau invalide ! Veuillez entrer un nombre positif."
+  setkb_usage: "§cUtilisation : /kb setkb <kb|punch> <niveau>"
+  
+  # Commande /kb reload
+  reload_success: "§aConfiguration rechargée avec succès !"
+  
+  # Commande /kb join
+  join_teleport: "§aVous avez rejoint KnockWars !"
+  join_inventory_set: "§7Votre inventaire a été configuré."
+  
+  # Commande /kb leave
+  leave_message: "§cVous avez quitté KnockWars."
+  
+  # Item Quitter
+  leave_item_name: "§cQuitter la partie"
+  
+  # Mort / chute dans le vide
+  void_respawn: "§cVous êtes tombé !"
+  
+  # Mort par joueur
+  player_death_by_player: "§cVous avez été tué par {killer} !"
+  player_death_other: "§cVous êtes mort !"

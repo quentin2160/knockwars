@@ -1,0 +1,46 @@
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+.m2/
+
+# Gradle
+build/
+.gradle/
+
+# IDE
+.classpath
+.project
+.settings/
+*.swp
+*.swo
+*~
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+bin/
+.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+*.o
+
+# Local properties
+local.properties
