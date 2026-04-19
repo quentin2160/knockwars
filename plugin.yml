@@ -2,7 +2,7 @@ name: KnockWars
 version: 1.0
 main: knockwars.Main
 author: Quentin_60
-website: https://bluewolf-mc.fr
+website: https://github.com/quentin2160/knockwars
 description: Module mini-jeux PVP avec effet de recul
 
 commands:
