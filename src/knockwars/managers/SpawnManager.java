@@ -84,4 +84,14 @@ public class SpawnManager {
     public boolean hasSpawn() {
         return spawnLocation != null;
     }
+
+    /**
+     * Vérifie si le monde donné est bien le monde du spawn KnockWars.
+     * Centralise la logique pour éviter que chaque listener réimplémente
+     * sa propre comparaison sur la config brute (et potentiellement
+     * ignore le fait que le spawn n'a pas pu être chargé).
+     */
+    public boolean isSpawnWorld(World world) {
+        return hasSpawn() && spawnLocation.getWorld().equals(world);
+    }
 }

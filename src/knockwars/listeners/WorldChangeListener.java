@@ -1,6 +1,7 @@
 package knockwars.listeners;
 
 import knockwars.Main;
+import knockwars.managers.SpawnManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,15 +18,11 @@ public class WorldChangeListener implements Listener {
     @EventHandler
     public void onWorldChange(PlayerChangedWorldEvent e) {
         Player p = e.getPlayer();
-        String spawnWorldName = plugin.getConfig().getString("spawn.world");
 
-        // Si le joueur est en jeu
-        if (plugin.isPlayerInGame(p)) {
-            // Si le joueur quitte le monde du spawn KnockWars
-            if (spawnWorldName != null && !p.getWorld().getName().equals(spawnWorldName)) {
-                // Le retirer automatiquement de la partie
-                plugin.playerLeaveGame(p);
-            }
+        // Si le joueur est en jeu et qu'il quitte le monde du spawn KnockWars,
+        // le retirer automatiquement de la partie
+        if (plugin.isPlayerInGame(p) && !plugin.getSpawnManager().isSpawnWorld(p.getWorld())) {
+            plugin.playerLeaveGame(p);
         }
     }
 }

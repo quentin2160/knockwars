@@ -15,26 +15,28 @@ public class ItemBuilder {
 
     public ItemBuilder(Material material) {
         this.item = new ItemStack(material);
+        // getItemMeta() peut retourner null pour certains matériaux (ex: AIR) ;
+        // les méthodes ci-dessous vérifient donc systématiquement meta avant de l'utiliser.
         this.meta = item.getItemMeta();
     }
 
     public ItemBuilder setName(String name) {
-        meta.setDisplayName(name);
+        if (meta != null) meta.setDisplayName(name);
         return this;
     }
 
     public ItemBuilder setLore(List<String> lore) {
-        meta.setLore(lore);
+        if (meta != null) meta.setLore(lore);
         return this;
     }
 
     public ItemBuilder addEnchant(Enchantment ench, int level, boolean ignoreLevelRestriction) {
-        meta.addEnchant(ench, level, ignoreLevelRestriction);
+        if (meta != null) meta.addEnchant(ench, level, ignoreLevelRestriction);
         return this;
     }
 
     public ItemBuilder addFlag(ItemFlag flag) {
-        meta.addItemFlags(flag);
+        if (meta != null) meta.addItemFlags(flag);
         return this;
     }
 
