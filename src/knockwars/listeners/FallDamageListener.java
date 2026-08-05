@@ -1,6 +1,7 @@
 package knockwars.listeners;
 
 import knockwars.Main;
+import knockwars.managers.SpawnManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,11 +21,9 @@ public class FallDamageListener implements Listener {
             Player p = (Player) e.getEntity();
             // Désactiver les dégâts de chute uniquement pour les joueurs en jeu
             // ET sur le monde du spawn KnockWars
-            if (plugin.isPlayerInGame(p)) {
-                String spawnWorldName = plugin.getConfig().getString("spawn.world");
-                if (spawnWorldName != null && p.getWorld().getName().equals(spawnWorldName)) {
-                    e.setCancelled(true);
-                }
+            SpawnManager spawnManager = plugin.getSpawnManager();
+            if (plugin.isPlayerInGame(p) && spawnManager.isSpawnWorld(p.getWorld())) {
+                e.setCancelled(true);
             }
         }
     }

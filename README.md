@@ -19,6 +19,8 @@ Un plugin de mini-jeu PVP pour Bukkit/Spigot basé sur le mode **KnockBack** (KB
 - ✅ Gestion des chutes dans le vide
 - ✅ Système de mort et respawn
 - ✅ Item de sortie du jeu
+- ✅ Restauration du GameMode d'origine à la sortie de la partie
+- ✅ Protection du kit (impossible de jeter ses items pendant la partie)
 - ✅ Messages entièrement en français et personnalisables
 - ✅ Système de permissions
 
@@ -94,7 +96,7 @@ Définit la localisation du spawn KnockWars à la position du joueur.
 
 ---
 
-#### `/kb setkb <kb|punch> <niveau>` — Permission: `knockwars.admin` (Op)
+#### `/kb setkb <kb|punch> <niveau>` — Permission: `knockwars.admin.setkb` (Op)
 Configure les niveaux de recul du jeu.
 
 ```
@@ -105,7 +107,7 @@ Configure les niveaux de recul du jeu.
 
 **Paramètres** :
 - `<kb|punch>` : Type d'enchantement (`kb` pour le bâton ou `punch` pour l'arc)
-- `<niveau>` : Niveau d'enchantement (0 = aucun recul, 1+ = Knockback I, II, etc.)
+- `<niveau>` : Niveau d'enchantement (0 = aucun recul, 1 à 10 accepté)
 
 ---
 
@@ -130,6 +132,9 @@ spawn:
   x: 8                # Coordonnée X
   y: 21               # Coordonnée Y
   z: 8                # Coordonnée Z
+
+lobby_world: ""       # Monde où renvoyer un joueur qui quitte la partie.
+                      # Vide = premier monde chargé du serveur (par défaut).
 ```
 
 **Utilisation** : Utilisez `/kb setspawn` pour définir le spawn depuis le jeu (plus facile).
@@ -159,6 +164,8 @@ lang:
   # Messages d'erreur
   no_permission: "§cVous n'avez pas la permission."
   not_player: "§cCette commande est réservée aux joueurs."
+  already_in_game: "§cVous êtes déjà en jeu."
+  not_in_game: "§cVous n'êtes pas en jeu."
   
   # Aide
   help_header: "§eListe des commandes KnockWars :"
@@ -177,6 +184,7 @@ lang:
   setkb_punch_set: "§aLe niveau de punch de l'arc a été défini à {level}."
   setkb_invalid_type: "§cType invalide ! Utilisez 'kb' ou 'punch'."
   setkb_invalid_level: "§cNiveau invalide ! Veuillez entrer un nombre positif."
+  setkb_level_too_high: "§cNiveau trop élevé ! Le maximum est {max}."
   setkb_usage: "§cUtilisation : /kb setkb <kb|punch> <niveau>"
   
   # Rechargement
@@ -186,6 +194,10 @@ lang:
   join_teleport: "§aVous avez rejoint KnockWars !"
   join_inventory_set: "§7Votre inventaire a été configuré."
   
+  # Items du kit
+  item_bow_name: "Arc KnockWars"
+  item_stick_name: "Bâton KB"
+
   # Quitter
   leave_message: "§cVous avez quitté KnockWars."
   leave_item_name: "§cQuitter la partie"
