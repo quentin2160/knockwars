@@ -9,10 +9,6 @@ spawn:
   y: 100
   z: 0
 
-# Monde vers lequel un joueur est renvoyé en quittant KnockWars.
-# Laisser vide pour utiliser le premier monde chargé du serveur (comportement par défaut).
-lobby_world: ""
-
 # # # # # # # # # # # # # # # # # # # # #
 #          Configuration du jeu         #
 # # # # # # # # # # # # # # # # # # # # #
@@ -39,8 +35,6 @@ lang:
   prefix: "§6[§eKnockWars§6] §r"
   no_permission: "§cVous n'avez pas la permission."
   not_player: "§cCette commande est réservée aux joueurs."
-  already_in_game: "§cVous êtes déjà en jeu."
-  not_in_game: "§cVous n'êtes pas en jeu."
 
   # Commande /kb help
   help_header: "§eListe des commandes KnockWars :"
@@ -62,7 +56,6 @@ lang:
   setkb_punch_set: "§aLe niveau de punch de l'arc a été défini à {level}."
   setkb_invalid_type: "§cType invalide ! Utilisez 'kb' ou 'punch'."
   setkb_invalid_level: "§cNiveau invalide ! Veuillez entrer un nombre positif."
-  setkb_level_too_high: "§cNiveau trop élevé ! Le maximum est {max}."
   setkb_usage: "§cUtilisation : /kb setkb <kb|punch> <niveau>"
 
   # Commande /kb join
@@ -71,10 +64,6 @@ lang:
 
   # Commande /kb leave
   leave_message: "§cVous avez quitté KnockWars."
-
-  # Items du kit
-  item_bow_name: "Arc KnockWars"
-  item_stick_name: "Bâton KB"
 
   # Item Quitter
   leave_item_name: "§cQuitter la partie"

@@ -1,7 +1,6 @@
 package knockwars.listeners;
 
 import knockwars.Main;
-import knockwars.managers.SpawnManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -27,8 +26,8 @@ public class PlayerDeathListener implements Listener {
         }
 
         // Vérifier que le joueur est sur le monde du spawn
-        SpawnManager spawnManager = plugin.getSpawnManager();
-        if (!spawnManager.isSpawnWorld(p.getWorld())) {
+        String spawnWorldName = plugin.getConfig().getString("spawn.world");
+        if (spawnWorldName == null || !p.getWorld().getName().equals(spawnWorldName)) {
             return;
         }
 
